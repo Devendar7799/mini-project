@@ -1,0 +1,47 @@
+<!-- <p-dropdown [options]="cities1"></p-dropdown>
+
+<p>data-tablsdfsdfes works!</p>
+
+{{alldetails|json}} -->
+
+
+<p-dataView #dv [value]="alldetails" [paginator]="true" [rows]="2" paginatorPosition="both" filterBy="email"
+  [sortField]="sortField" [sortOrder]="sortOrder">
+  <!-- <p-dataView styleClass="dataview-grid" [value]="alldetails" layout="grid"> -->
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+
+
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+          (onChange)="onSortChange($event)" [style]="{'min-width':'15em'}"></p-dropdown>
+        </div>
+        <div class="ui-g-6 ui-md-4 filter-container">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="Search by brand" (input)="dv.filter($event.target.value)">
+          </div>
+        </div>
+        <div class="ui-g-6 ui-md-4" style="text-align:right">
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-item pTemplate="listItem">
+    <div class="ui-g-12 ui-md-6">
+      <div class="ui-g-12">id: <b>{{item.id}}</b></div>
+      <div class="ui-g-12">email: <b>{{item.email}}</b></div>
+      <div class="ui-g-12">first name: <b>{{item.first_name}}</b></div>
+      <div class="ui-g-12">last name: <b>{{item.last_name}}</b></div>
+    </div>
+  </ng-template>
+  <ng-template let-item pTemplate="gridItem">
+    <div class="ui-g-12 ui-md-6">
+      <div class="ui-g-12">id: <b>{{item.id}}</b></div>
+      <div class="ui-g-12">email: <b>{{item.email}}</b></div>
+      <div class="ui-g-12">first name: <b>{{item.first_name}}</b></div>
+      <div class="ui-g-12">last name: <b>{{item.last_name}}</b></div>
+    </div>
+  </ng-template>
+</p-dataView>
